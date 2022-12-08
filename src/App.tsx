@@ -1,22 +1,28 @@
 import React from 'react';
 import './App.css';
-import {Accordion} from './components/Accordion/Accordion';
-import {Rating} from './components/Rating/Rating';
+import {ControlledAccordion} from './components/Accordion/ControlledAccordion';
+import {ControlledRating} from './components/Rating/ControlledRating';
+import {OnOff} from './components/OnOff/OnOff';
+import {UnControlledAccordion} from './components/Accordion/UnControlledAccordion';
+import {UnControlledRating} from './components/Rating/UncontrolledRating';
 
 
 function App() {
-    console.log('App rendering')
     return (
-        <div>
+        <div className={'App'}>
             <PageTitle title={'This is APP component'}/>
-            <Rating value={4}/>
-            <Accordion title={'Menu'} collapsed={false}/>
-            <Accordion title={'Users'} collapsed={false}/>
-            <Rating value={1}/>
-            <Rating value={2}/>
-            <Rating value={3}/>
-            <Rating value={4}/>
-            <Rating value={5}/>
+            <ControlledRating value={4}/>
+            <UnControlledRating/>
+            <ControlledAccordion title={'Menu'} collapsed={false}/>
+            <ControlledAccordion title={'Users'} collapsed={false}/>
+            <UnControlledAccordion title={'Menu'}/>
+            <UnControlledAccordion title={'Users'}/>
+            <ControlledRating value={1}/>
+            <ControlledRating value={2}/>
+            <ControlledRating value={3}/>
+            <ControlledRating value={4}/>
+            <ControlledRating value={5}/>
+            <OnOff/>
         </div>
     );
 }
