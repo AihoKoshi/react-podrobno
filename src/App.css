@@ -1,5 +1,8 @@
 .App {
   width: 600px;
   margin: 20px auto;
+}
 
+.partition {
+  color: hotpink;
 }

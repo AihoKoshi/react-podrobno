@@ -1,20 +1,17 @@
 import React, {useState} from 'react';
 
-export type UnAccordionPropsType = {
+export type UnControlledAccordionPropsType = {
     title: string
 }
 
-export const UnControlledAccordion = (props: UnAccordionPropsType) => {
+export const UnControlledAccordion = ({title}: UnControlledAccordionPropsType) => {
 
     let [collapsed, setCollapsed] = useState<boolean>(false);
-
-    const toggleOnclickHandler = () => {
-        setCollapsed(!collapsed)
-    }
+    const toggleOnclickHandler = () => setCollapsed(!collapsed)
 
     return (
         <div>
-            <AccordionTitle title={props.title} toggleOnclickHandler={toggleOnclickHandler}/>
+            <AccordionTitle title={title} toggleOnclickHandler={toggleOnclickHandler}/>
             {!collapsed && <AccordionBody/>}
         </div>
     )
@@ -25,9 +22,9 @@ export type AccordionTitlePropsType = {
     toggleOnclickHandler: () => void
 }
 
-function AccordionTitle(props: AccordionTitlePropsType) {
+function AccordionTitle({title, toggleOnclickHandler}: AccordionTitlePropsType) {
 
-    return <h3 onClick={props.toggleOnclickHandler}>{props.title}</h3>
+    return <h3 onClick={toggleOnclickHandler}>{title}</h3>
 }
 
 function AccordionBody() {
